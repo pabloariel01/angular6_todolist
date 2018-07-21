@@ -1,0 +1,14 @@
+<div>
+  <p>
+    todo list works!
+  </p>
+  <div>
+    <ul *ngFor="let items of list">
+      <li >
+          {{items}}
+      </li>
+    </ul>
+  </div>
+  <input #item [(ngModel)]="itm" type="text">
+  <button class="btn btn-success" (click)="addItem(item.value)">agregar</button>
+</div>
