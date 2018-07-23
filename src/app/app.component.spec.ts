@@ -1,11 +1,21 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AppRoutingModule } from './app-routing.module';
+import { TestComponent } from './test/test.component';
+import { APP_BASE_HREF } from '@angular/common';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        NavbarComponent,
+        TestComponent
       ],
+      imports:[AppRoutingModule],
+      providers: [
+        { provide: APP_BASE_HREF, useValue : '/' }
+    ]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
@@ -22,6 +32,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-todolist!');
+    expect(compiled.querySelector('h1').textContent).toContain('app');
   }));
 });

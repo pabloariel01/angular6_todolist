@@ -1,14 +1,21 @@
 <div>
-  <p>
-    todo list works!
-  </p>
-  <div>
-    <ul *ngFor="let items of list">
-      <li >
-          {{items}}
+  <h3>Tasks</h3>
+  <input class="new" placeholder="new task" autofocus=""
+  #item [(ngModel)]="newTodo.title" type="text" (keyup.enter)="addTodo()">
+  <section class="main" *ngIf="todoService.todos.length > 0">
+    <ul class="todo-list">
+      <li *ngFor="let todo of todoService.todos" [class.complete]="todo.done">
+        <div class="view">
+          <input type="checkbox" class="toggle" 
+          (click)="toggleComplete(todo)" [checked]="todo.done">
+          <label>{{todo.title}}</label> 
+          <button class="destroy" (click)="removeTodo(todo)"></button>
+        </div>  
       </li>
     </ul>
-  </div>
-  <input #item [(ngModel)]="itm" type="text">
-  <button class="btn btn-success" (click)="addItem(item.value)">agregar</button>
+  </section>
+  <!-- <button class="btn btn-success" (click)="addItem(item.value)">agregar</button> -->
+</div>
+<div class="footer" *ngIf="todoService.todos.length > 0">
+  <span><strong>{{todoService.todos.length}}</strong>{{todoService.todos.length===1?'item':'items'}} left</span>
 </div>
