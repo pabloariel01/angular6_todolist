@@ -6,21 +6,18 @@ import { Todo } from '../../todo';
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.css'],
-  providers:[TodoService]
 })
 export class TodolistComponent implements OnInit {
 
-  newTodo:Todo=new Todo()
+
   constructor(private todoService:TodoService) { 
-  
   }
 
   ngOnInit() {
   }
   
-  addTodo(){
-    this.todoService.add(this.newTodo)
-    this.newTodo=new Todo()
+  addTodo(todo:Todo){
+    this.todoService.add(todo)
 
   }
 

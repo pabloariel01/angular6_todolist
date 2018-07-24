@@ -1,21 +1,9 @@
-<div>
-  <h3>Tasks</h3>
-  <input class="new" placeholder="new task" autofocus=""
-  #item [(ngModel)]="newTodo.title" type="text" (keyup.enter)="addTodo()">
-  <section class="main" *ngIf="todoService.todos.length > 0">
-    <ul class="todo-list">
-      <li *ngFor="let todo of todoService.todos" [class.complete]="todo.done">
-        <div class="view">
-          <input type="checkbox" class="toggle" 
-          (click)="toggleComplete(todo)" [checked]="todo.done">
-          <label>{{todo.title}}</label> 
-          <button class="destroy" (click)="removeTodo(todo)"></button>
-        </div>  
-      </li>
-    </ul>
-  </section>
+<div class="todoapp">
+  <app-header (add)="addTodo($event)"></app-header>
+  <app-list [todos]="todoService.todos" 
+    (removeTodo)="removeTodo($event)" 
+    (toggleComplete)="toggleComplete($event)"></app-list>
+
   <!-- <button class="btn btn-success" (click)="addItem(item.value)">agregar</button> -->
 </div>
-<div class="footer" *ngIf="todoService.todos.length > 0">
-  <span><strong>{{todoService.todos.length}}</strong>{{todoService.todos.length===1?'item':'items'}} left</span>
-</div>
+<app-footer [todos]="todoService.todos"></app-footer>
