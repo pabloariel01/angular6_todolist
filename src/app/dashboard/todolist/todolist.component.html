@@ -1,9 +1,9 @@
 <div class="todoapp">
   <app-header (add)="addTodo($event)"></app-header>
-  <app-list [todos]="todoService.todos" 
+  <app-list [todos]="todos" 
     (removeTodo)="removeTodo($event)" 
     (toggleComplete)="toggleComplete($event)"></app-list>
 
   <!-- <button class="btn btn-success" (click)="addItem(item.value)">agregar</button> -->
 </div>
-<app-footer [todos]="todoService.todos"></app-footer>
+<app-footer [todos]="todos"></app-footer>

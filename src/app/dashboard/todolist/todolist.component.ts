@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../../todo.service';
 import { Todo } from '../../todo';
+import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'app-todolist',
@@ -8,30 +9,34 @@ import { Todo } from '../../todo';
   styleUrls: ['./todolist.component.css'],
 })
 export class TodolistComponent implements OnInit {
+  todos:Todo[]=[];
 
-
-  constructor(private todoService:TodoService) { 
+  constructor(
+    private todoService:TodoService,
+    private apiservice:ApiService
+  ) { 
   }
 
   ngOnInit() {
+    this.apiservice.getAllTodos()
+      .subscribe(todos=>this.todos=todos)
   }
   
   addTodo(todo:Todo){
     this.todoService.add(todo)
+      .subscribe(newtodo=>this.todos=this.todos.concat(newtodo))
 
   }
 
   toggleComplete(todo){
     this.todoService.toggleComplete(todo)
+      .subscribe(changedtodo=>todo=changedtodo)
   }
   
   removeTodo(todo){
-    console.log(todo)
     this.todoService.delete(todo.id)
+      .subscribe(_=>{this.todos=this.todos.filter(t=>t.id!==todo.id)})
   }
 
-  getTodos(){
-    return this.todoService.getAll();
-  }
 
 }

@@ -8,11 +8,11 @@ describe('Todo', () => {
   it("should accept params in constructor",()=>{
     let todo=new Todo({
       title:'todo test',
-      done:true
+      complete:true
     })
 
     expect(todo.title).toEqual('todo test');
-    expect(todo.done).toEqual(true)
+    expect(todo.complete).toEqual(true)
   })
 
 

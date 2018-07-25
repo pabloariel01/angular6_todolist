@@ -1,19 +1,29 @@
 {
-    "todos": [
-      {
-        "id": 1,
-        "title": "Read SitePoint article",
-        "complete": false
-      },
-      {
-        "id": 2,
-        "title": "Clean inbox",
-        "complete": false
-      },
-      {
-        "id": 3,
-        "title": "Make restaurant reservation",
-        "complete": false
-      }
-    ]
-  }
+  "todos": [
+    {
+      "complete": false,
+      "id": 1,
+      "title": "Read SitePoint article"
+    },
+    {
+      "complete": false,
+      "id": 2,
+      "title": "Clean inbox"
+    },
+    {
+      "complete": true,
+      "id": 3,
+      "title": "Make restaurant reservation"
+    },
+    {
+      "complete": false,
+      "title": "asd",
+      "id": 4
+    },
+    {
+      "complete": false,
+      "title": "f",
+      "id": 6
+    }
+  ]
+}

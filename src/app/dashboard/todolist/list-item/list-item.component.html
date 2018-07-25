@@ -1,6 +1,6 @@
 <div class="view">
   <input type="checkbox" class="toggle" 
-  (click)="onToggleComplete(todo)" [checked]="todo.done">
+  (click)="onToggleComplete(todo)" [checked]="todo.complete">
   <label>{{todo.title}}</label> 
   <button class="destroy" (click)="onRemoveTodo(todo)"></button>
 </div>  

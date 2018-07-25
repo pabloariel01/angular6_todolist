@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { TestComponent } from './test/test.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import {  HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,12 +15,14 @@ import { NavbarComponent } from './navbar/navbar.component';
     TestComponent,
     NavbarComponent,
     
+    
   ],
   imports: [
     NgbModule.forRoot(),
     CommonModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent],
   providers: [],
