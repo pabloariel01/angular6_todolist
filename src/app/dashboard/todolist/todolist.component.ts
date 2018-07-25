@@ -12,13 +12,12 @@ export class TodolistComponent implements OnInit {
   todos:Todo[]=[];
 
   constructor(
-    private todoService:TodoService,
-    private apiservice:ApiService
+    private todoService:TodoService
   ) { 
   }
 
   ngOnInit() {
-    this.apiservice.getAllTodos()
+    this.todoService.getAll()
       .subscribe(todos=>this.todos=todos)
   }
   

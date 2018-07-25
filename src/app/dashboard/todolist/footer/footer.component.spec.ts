@@ -16,10 +16,16 @@ describe('FooterComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
+    component.todos=[{id:1, title:"test", complete:true}]
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it("should get the correct number of todos",()=>{
+    const compiled=fixture.debugElement.nativeElement;
+    expect(compiled.querySelector("strong").textContent).toEqual("1")
+  })
 });
